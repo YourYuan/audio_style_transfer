@@ -88,8 +88,8 @@ with g.as_default(), g.device('/cpu:0'), tf.Session() as sess:
 from sys import stderr
 
 ALPHA= 1e-2
-learning_rate= 1e-3
-iterations = 100
+#learning_rate= 1e-3
+#iterations = 100
 
 result = None
 with tf.Graph().as_default():
