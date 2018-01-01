@@ -101,6 +101,8 @@ class neural_audio_style_transfer(object):
 		a = np.zeros_like(self.a_content)
 		a[:self.n_channels,:] = np.exp(self.result[0,0].T) - 1
 		p = 2 * np.pi * np.random.random_sample(a.shape) - np.pi
+
+		self.a_reuslt = a
 	
 		for i in range(500):
 			S = a * np.exp(1j*p)
