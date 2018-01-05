@@ -5,9 +5,9 @@ from plot import plot_spectrum
 
 def main():
 	##### 修改以下三个参数就好啦 ###########
-	content_name = "lemons"				# content filename without suffix(.mp3)
+	content_name = "bach"				# content filename without suffix(.mp3)
 	style_name = "beat"					# style filename
-	alpha = 0.01   						# Larger alpha means more content in the output and alpha=0 means no content
+	alpha = 0  						# Larger alpha means more content in the output and alpha=0 means no content
 	#####################################
 	result_name = content_name+"_"+style_name
 	
@@ -23,7 +23,7 @@ def main():
 	
 
 	nnet.optimize(alpha=0.01)
-	nnet.save(output='outputs/{0}.wav'.format(result_name))
+	nnet.save(output='outputs/{0}_0.wav'.format(result_name))
 	a_result = nnet.a_reuslt
 
 	plot_spectrum(a_result,filename=result_name)

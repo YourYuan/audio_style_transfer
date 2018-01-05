@@ -78,7 +78,7 @@ class neural_audio_style_transfer(object):
 
 			size = height * width * number
 			features = tf.reshape(net, (-1, number))
-			gram = tf.matmul(tf.transpose(features), features)
+			gram = tf.matmul(tf.transpose(features), features)/ n_samples
 			style_loss = 2 * tf.nn.l2_loss(gram - style_gram)
 
 			loss = content_loss + style_loss
