@@ -1,5 +1,4 @@
 # coding: utf-8
-
 import tensorflow as tf
 import librosa
 import numpy as np
@@ -78,7 +77,7 @@ class neural_audio_style_transfer(object):
 
 			size = height * width * number
 			features = tf.reshape(net, (-1, number))
-			gram = tf.matmul(tf.transpose(features), features)/ n_samples
+			gram = tf.matmul(tf.transpose(features), features)/ self.n_samples
 			style_loss = 2 * tf.nn.l2_loss(gram - style_gram)
 
 			loss = content_loss + style_loss
@@ -102,7 +101,7 @@ class neural_audio_style_transfer(object):
 		a[:self.n_channels,:] = np.exp(self.result[0,0].T) - 1
 		p = 2 * np.pi * np.random.random_sample(a.shape) - np.pi
 
-		self.a_reuslt = a
+		self.a_result = a
 	
 		for i in range(500):
 			S = a * np.exp(1j*p)
